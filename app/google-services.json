@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "494148702493",
+    "project_id": "rideo-90d80",
+    "storage_bucket": "rideo-90d80.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:494148702493:android:815d3e0994f364a30951f4",
+        "android_client_info": {
+          "package_name": "com.example.rideo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDyggZ1GnyRITw86bGswt5x8KwCI4yZFXU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

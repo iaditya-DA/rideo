@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/driver_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DriverDashboardActivity">
+
+    <!-- 1. Map Background -->
+    <org.osmdroid.views.MapView
+        android:id="@+id/driver_map_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:paddingBottom="0dp"
+        android:clipToOutline="true"
+        android:background="@drawable/rounded_map_bg"
+        android:elevation="4dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- 2. Header Bar -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/driver_header"
+        android:layout_width="0dp"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#0A1C3A"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:elevation="12dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageView
+            android:id="@+id/driver_btn_menu"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@drawable/ic_more_vert_white_24dp"
+            android:contentDescription="Menu"
+            app:tint="@android:color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <TextView
+            android:id="@+id/driver_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="RIDEO"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- 3. Online/Offline Toggle -->
+    <LinearLayout
+        android:id="@+id/driver_online_toggle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        android:background="@drawable/rounded_toggle_background"
+        android:elevation="10dp"
+        app:layout_constraintTop_toBottomOf="@id/driver_header"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp">
+
+        <TextView
+            android:id="@+id/text_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ONLINE"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:layout_marginEnd="8dp" />
+
+        <Switch
+            android:id="@+id/switch_online"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true" />
+    </LinearLayout>
+
+    <!-- 4. Status Card Overlay -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/driver_status_card"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="32dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="16dp"
+        android:elevation="16dp"
+        app:cardBackgroundColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:id="@+id/status_main_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="YOU'RE ONLINE"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#0A1C3A"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:id="@+id/status_sub_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Waiting for ride requests..."
+                android:textSize="14sp"
+                android:textColor="#757575"
+                android:layout_marginBottom="16dp" />
+
+            <ImageView
+                android:id="@+id/status_icon"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:src="@drawable/ic_satellite_dish"
+                android:contentDescription="Waiting Icon"
+                android:layout_marginBottom="16dp" />
+
+            <!-- Accept/Reject Buttons -->
+            <LinearLayout
+                android:id="@+id/ride_action_buttons"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <Button
+                    android:id="@+id/btn_accept_ride"
+                    android:layout_width="120dp"
+                    android:layout_height="48dp"
+                    android:text="ACCEPT"
+                    android:textColor="@android:color/white"
+                    android:backgroundTint="#1E88E5"
+                    android:layout_marginEnd="16dp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/btn_reject_ride"
+                    android:layout_width="120dp"
+                    android:layout_height="48dp"
+                    android:text="REJECT"
+                    android:textColor="@android:color/white"
+                    android:backgroundTint="#E53935"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- Arrived/Complete Buttons -->
+            <LinearLayout
+                android:id="@+id/ride_progress_buttons"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                android:layout_marginTop="16dp">
+
+                <Button
+                    android:id="@+id/btn_arrived"
+                    android:layout_width="120dp"
+                    android:layout_height="48dp"
+                    android:text="ARRIVED"
+                    android:textColor="@android:color/white"
+                    android:backgroundTint="#43A047"
+                    android:layout_marginEnd="16dp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/btn_complete"
+                    android:layout_width="120dp"
+                    android:layout_height="48dp"
+                    android:text="COMPLETE"
+                    android:textColor="@android:color/white"
+                    android:backgroundTint="#FDD835"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
