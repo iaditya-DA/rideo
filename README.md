@@ -49,6 +49,8 @@ Adapter Layer → RecyclerView Adapters
 Model Layer → Ride, User, Location data classes
 Firebase Backend → Authentication + Database
 📂 Project Structure
+
+
 rideo/
 │── app/
 │── gradle/
@@ -64,6 +66,7 @@ com.example.rideo
 res/
 │── layout
 │── drawable
+
 🔮 Future Enhancements
 In-app chat
 Google Maps integration
@@ -75,6 +78,7 @@ Run Project
 Open in Android Studio
 Let Gradle sync
 Connect device / start emulator
+
 Click Run
 👨‍💻 Developer
 
